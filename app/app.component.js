@@ -13,7 +13,7 @@ var todo_service_1 = require('./shared/todo.service');
 var todos_component_1 = require('./components/todos/todos.component');
 var AppComponent = (function () {
     function AppComponent() {
-        this.title = 'Angular 2Do';
+        this.title = 'Dimon@Champion';
     }
     AppComponent = __decorate([
         core_1.Component({

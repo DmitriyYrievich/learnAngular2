@@ -14,6 +14,7 @@ var TodoFormComponent = (function () {
     function TodoFormComponent() {
         this.created = new core_1.EventEmitter();
     }
+    //+++
     TodoFormComponent.prototype.create = function (title) {
         if (title) {
             var todo = new todo_model_1.Todo(title);

@@ -16,6 +16,7 @@ var TodoListComponent = (function () {
         this.deleted = new core_1.EventEmitter();
     }
     Object.defineProperty(TodoListComponent.prototype, "sortedTodos", {
+        //+++
         get: function () {
             return this.todos
                 .map(function (todo) { return todo; })
@@ -39,9 +40,11 @@ var TodoListComponent = (function () {
         enumerable: true,
         configurable: true
     });
+    //+++
     TodoListComponent.prototype.onTodoToggled = function (todo) {
         this.toggled.emit(todo);
     };
+    //+++
     TodoListComponent.prototype.onTodoDeleted = function (todo) {
         this.deleted.emit(todo);
     };

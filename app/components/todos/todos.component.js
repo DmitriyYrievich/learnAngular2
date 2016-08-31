@@ -13,28 +13,37 @@ var todo_service_1 = require('../../shared/todo.service');
 var todo_form_component_1 = require('./todo-form/todo-form.component');
 var todo_list_component_1 = require('./todo-list/todo-list.component');
 var TodosComponent = (function () {
+    // todoService: TodoService;
     function TodosComponent(todoService) {
-        this.todos = [];
         this.todoService = todoService;
+        this.todos = [];
+        //this.todoService = todoService;
     }
+    //+++
     TodosComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.todoService.getTodos().then(function (todos) { return _this.todos = todos; });
     };
+    //+++
     TodosComponent.prototype.onTodoCreated = function (todo) {
         var _this = this;
+        console.log(todo);
         this.todoService.addTodo(todo).then(function (todo) { return _this.addTodo(todo); });
     };
+    //+++
     TodosComponent.prototype.onTodoToggled = function (todo) {
-        this.todoService.saveTodo(todo).then(function (todo) { });
+        this.todoService.saveTodo(todo).then(function (todo) { return console.log(todo); });
     };
+    //+++
     TodosComponent.prototype.onTodoDeleted = function (todo) {
         var _this = this;
         this.todoService.deleteTodo(todo).then(function (todo) { return _this.deleteTodo(todo); });
     };
+    //+++
     TodosComponent.prototype.addTodo = function (todo) {
         this.todos.push(todo);
     };
+    //+++
     TodosComponent.prototype.deleteTodo = function (todo) {
         var index = this.todos.indexOf(todo);
         if (index > -1) {

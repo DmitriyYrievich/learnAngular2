@@ -1,5 +1,8 @@
 [
-    { "id": 1, "title": "Изучить ES6", "done": false },
-    { "id": 2, "title": "Изучить TypeScript", "done": false },
-    { "id": 3, "title": "Изучить Angular 2", "done": false }
+    { "id": 1, "title": "Learn ES6", "done": false },
+    { "id": 2, "title": "Learn TypeScript", "done": false },
+    { "id": 3, "title": "Learn Angular 2", "done": false },
+    { "id": 4, "title": "Learn webpack", "done": false },
+    { "id": 5, "title": "Learn GULP", "done": false },
+    { "id": 6, "title": "Learn reactJS", "done": false }
 ]

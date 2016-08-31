@@ -7,6 +7,7 @@ import { Todo } from '../../../shared/todo.model';
     templateUrl: './app/components/todos/todo-form/todo-form.component.html',
     styleUrls: ['./app/components/todos/todo-form/todo-form.component.css']
 })
+
 export class TodoFormComponent {
     @Output() created: EventEmitter<Todo>;
 
@@ -14,6 +15,7 @@ export class TodoFormComponent {
         this.created = new EventEmitter<Todo>();
     }
 
+    //+++
     create(title: string) {
         if (title) {
             let todo = new Todo(title);

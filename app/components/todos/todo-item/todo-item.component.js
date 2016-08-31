@@ -15,10 +15,12 @@ var TodoItemComponent = (function () {
         this.toggled = new core_1.EventEmitter();
         this.deleted = new core_1.EventEmitter();
     }
+    //+++
     TodoItemComponent.prototype.toggle = function () {
         this.todo.done = !this.todo.done;
         this.toggled.emit(this.todo);
     };
+    //+++
     TodoItemComponent.prototype.delete = function () {
         this.deleted.emit(this.todo);
     };

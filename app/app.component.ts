@@ -11,10 +11,11 @@ import { TodosComponent } from './components/todos/todos.component';
     directives: [TodosComponent],
     providers: [TodoService]
 })
+
 export class AppComponent {
     title: string;
 
     constructor() {
-        this.title = 'Angular 2Do';
+        this.title = 'Dimon@Champion';
     }
 }

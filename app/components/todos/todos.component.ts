@@ -13,33 +13,40 @@ import { TodoListComponent } from './todo-list/todo-list.component';
 })
 export class TodosComponent implements OnInit {
     todos: ITodo[];
-    todoService: TodoService;
+    // todoService: TodoService;
 
-    constructor(todoService: TodoService) {
+    constructor(private todoService: TodoService) {
         this.todos = [];
-        this.todoService = todoService;
+        //this.todoService = todoService;
     }
 
+    //+++
     ngOnInit() {
         this.todoService.getTodos().then(todos => this.todos = todos);
     }
 
+    //+++
     onTodoCreated(todo: ITodo): void {
+        console.log(todo);
         this.todoService.addTodo(todo).then(todo => this.addTodo(todo));
     }
 
+    //+++
     onTodoToggled(todo: ITodo): void {
-        this.todoService.saveTodo(todo).then(todo => {});
+        this.todoService.saveTodo(todo).then(todo => console.log(todo));
     }
 
+    //+++
     onTodoDeleted(todo: ITodo): void {
         this.todoService.deleteTodo(todo).then(todo => this.deleteTodo(todo));
     }
 
+    //+++
     private addTodo(todo: ITodo): void {
         this.todos.push(todo);
     }
 
+    //+++
     private deleteTodo(todo: ITodo): void {
         let index = this.todos.indexOf(todo);
 

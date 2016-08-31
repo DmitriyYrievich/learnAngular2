@@ -16,12 +16,14 @@ export class TodoItemComponent {
         this.toggled = new EventEmitter<Todo>();
         this.deleted = new EventEmitter<Todo>();
     }
-
+    
+    //+++
     toggle() {
         this.todo.done = !this.todo.done;
         this.toggled.emit(this.todo);
     }
 
+    //+++
     delete() {
         this.deleted.emit(this.todo);
     }

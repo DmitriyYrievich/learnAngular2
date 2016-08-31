@@ -19,6 +19,7 @@ export class TodoListComponent {
         this.deleted = new EventEmitter<ITodo>();
     }
 
+    //+++
     get sortedTodos(): ITodo[] {
         return this.todos
             .map(todo => todo)
@@ -34,10 +35,12 @@ export class TodoListComponent {
             });
     }
 
+    //+++
     onTodoToggled(todo: ITodo): void {
         this.toggled.emit(todo);
     }
 
+    //+++
     onTodoDeleted(todo: ITodo): void {
         this.deleted.emit(todo);
     }

@@ -16,30 +16,42 @@ var TodoService = (function () {
         this.http = http;
         this.apiUrl = 'api/todos';
     }
+    //+++
     TodoService.prototype.getTodos = function () {
         return this.http.get(this.apiUrl)
             .toPromise()
-            .then(function (res) { return res.json().data; })
+            .then(function (res) {
+            //console.log(res.json().data);
+            return res.json().data;
+        })
             .catch(this.handleError);
     };
+    //+++
     TodoService.prototype.addTodo = function (todo) {
         return this.post(todo);
     };
+    //+++
     TodoService.prototype.saveTodo = function (todo) {
         return this.put(todo);
     };
+    //+++
     TodoService.prototype.deleteTodo = function (todo) {
         return this.delete(todo);
     };
+    //+++
     TodoService.prototype.post = function (todo) {
         var body = JSON.stringify(todo);
         var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         var options = new http_1.RequestOptions({ headers: headers });
         return this.http.post(this.apiUrl, body, options)
             .toPromise()
-            .then(function (res) { return res.json().data; })
+            .then(function (res) {
+            //console.log( res.json().data)
+            return res.json().data;
+        })
             .catch(this.handleError);
     };
+    //+++
     TodoService.prototype.put = function (todo) {
         var body = JSON.stringify(todo);
         var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
@@ -50,15 +62,17 @@ var TodoService = (function () {
             .then(function (res) { return todo; })
             .catch(this.handleError);
     };
+    //+++
     TodoService.prototype.delete = function (todo) {
         var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         var options = new http_1.RequestOptions({ headers: headers });
         var url = this.apiUrl + "/" + todo.id;
         return this.http.delete(url, options)
             .toPromise()
-            .then(function (res) { return todo; })
+            .then(function (res) { console.log(todo); return todo; })
             .catch(this.handleError);
     };
+    //+++
     TodoService.prototype.handleError = function (error) {
         console.log('Произошла ошибка', error);
         return Promise.reject(error.message || error);
