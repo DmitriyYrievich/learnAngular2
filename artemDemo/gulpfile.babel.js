@@ -40,7 +40,7 @@ gulp.task('less', function () {
 
 gulp.task('watch', () => {
     gulp.watch('./source/**/*.ts', ['browserify']);
-	gulp.watch('./source/less/*.less', ['less']);
+gulp.watch('./source/less/*.less', ['less']);
 });
 
 gulp.task('build', ['browserify', 'less']);
