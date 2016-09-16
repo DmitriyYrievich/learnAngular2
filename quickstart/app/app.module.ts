@@ -1,13 +1,37 @@
-import { NgModule }      from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms'; 
-import { HeroDetailComponent } from './hero-detail.component'; 
+import { NgModule }       from '@angular/core';
+import { BrowserModule }  from '@angular/platform-browser';
+import { FormsModule }    from '@angular/forms';
 
-import { AppComponent }  from './app.component';
+import { AppComponent }         from './app.component';
+import { DashboardComponent }   from './dashboard.component';
+import { HeroDetailComponent }  from './hero-detail.component';
+import { HeroesComponent }      from './heroes.component';
+import { HeroService }          from './hero.service';
+import { routing } from './app.routing';
 
 @NgModule({
-  imports: [ BrowserModule, FormsModule ],
-  declarations: [ AppComponent, HeroDetailComponent ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    routing
+  ],
+  declarations: [
+    AppComponent,
+    DashboardComponent,
+    HeroDetailComponent,
+    HeroesComponent
+  ],
+  providers: [
+    HeroService
+  ],
   bootstrap: [ AppComponent ]
 })
-export class AppModule { }
+export class AppModule {
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/
