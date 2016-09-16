@@ -1,33 +1,38 @@
-// Keep the Input import for now, we'll remove it later:
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 
+import { Hero } from './hero';
 import { HeroService } from './hero.service';
-import { Hero } from "./hero";
-
 
 @Component({
-	selector: 'hero-detail',
-	templateUrl: 'app/hero-detail.component.html',
-	styleUrls: ["app/hero-detail.component.css"]
+  selector: 'my-hero-detail',
+  templateUrl: 'app/hero-detail.component.html',
+  styleUrls: ['app/hero-detail.component.css']
 })
-
 export class HeroDetailComponent implements OnInit {
+  hero: Hero;
 
-	constructor(
-	  private heroService: HeroService,
-	  private route: ActivatedRoute) {
-	}
+  constructor(
+    private heroService: HeroService,
+    private route: ActivatedRoute) {
+  }
 
-	ngOnInit(): void {
-	  console.log(this.route.params);
-	  this.route.params.forEach((param: Params) => {
-	     let id = +param['id'];
-	     this.heroService.getHero(id).then(hero => this.hero = hero);
-	  });
-	}
+  ngOnInit(): void {
+    this.route.params.forEach((params: Params) => {
+      let id = +params['id'];
+      this.heroService.getHero(id)
+        .then(hero => this.hero = hero);
+    });
+  }
 
-	goBack(): void{
-		window.history.back();
-	}
+  goBack(): void {
+    window.history.back();
+  }
 }
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/
