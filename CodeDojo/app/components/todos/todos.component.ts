@@ -22,23 +22,23 @@ export class TodosComponent implements OnInit {
 
     //+++
     ngOnInit() {
-        this.todoService.getTodos().then(todos => this.todos = todos);
+        this.todoService.getTodos().subscribe(todos => this.todos = todos);
     }
 
     //+++
     onTodoCreated(todo: ITodo): void {
         console.log(todo);
-        this.todoService.addTodo(todo).then(todo => this.addTodo(todo));
+        this.todoService.addTodo(todo).subscribe(todo => this.addTodo(todo));
     }
 
     //+++
     onTodoToggled(todo: ITodo): void {
-        this.todoService.saveTodo(todo).then(todo => console.log(todo));
+        this.todoService.saveTodo(todo).subscribe(todo => console.log(todo));
     }
 
     //+++
     onTodoDeleted(todo: ITodo): void {
-        this.todoService.deleteTodo(todo).then(todo => this.deleteTodo(todo));
+        this.todoService.deleteTodo(todo).subscribe(todo => this.deleteTodo(todo));
     }
 
     //+++

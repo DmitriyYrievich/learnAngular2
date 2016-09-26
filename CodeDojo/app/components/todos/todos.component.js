@@ -22,22 +22,22 @@ var TodosComponent = (function () {
     //+++
     TodosComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.todoService.getTodos().then(function (todos) { return _this.todos = todos; });
+        this.todoService.getTodos().subscribe(function (todos) { return _this.todos = todos; });
     };
     //+++
     TodosComponent.prototype.onTodoCreated = function (todo) {
         var _this = this;
         console.log(todo);
-        this.todoService.addTodo(todo).then(function (todo) { return _this.addTodo(todo); });
+        this.todoService.addTodo(todo).subscribe(function (todo) { return _this.addTodo(todo); });
     };
     //+++
     TodosComponent.prototype.onTodoToggled = function (todo) {
-        this.todoService.saveTodo(todo).then(function (todo) { return console.log(todo); });
+        this.todoService.saveTodo(todo).subscribe(function (todo) { return console.log(todo); });
     };
     //+++
     TodosComponent.prototype.onTodoDeleted = function (todo) {
         var _this = this;
-        this.todoService.deleteTodo(todo).then(function (todo) { return _this.deleteTodo(todo); });
+        this.todoService.deleteTodo(todo).subscribe(function (todo) { return _this.deleteTodo(todo); });
     };
     //+++
     TodosComponent.prototype.addTodo = function (todo) {

@@ -10,7 +10,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
-require('rxjs/add/operator/toPromise');
+var Observable_1 = require("rxjs/Observable");
+require("rxjs/add/operator/map");
+require("rxjs/add/operator/catch");
+require("rxjs/add/observable/throw");
 var TodoService = (function () {
     function TodoService(http) {
         this.http = http;
@@ -19,8 +22,7 @@ var TodoService = (function () {
     //+++
     TodoService.prototype.getTodos = function () {
         return this.http.get(this.apiUrl)
-            .toPromise()
-            .then(function (res) {
+            .map(function (res) {
             //console.log(res.json().data);
             return res.json().data;
         })
@@ -44,8 +46,7 @@ var TodoService = (function () {
         var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         var options = new http_1.RequestOptions({ headers: headers });
         return this.http.post(this.apiUrl, body, options)
-            .toPromise()
-            .then(function (res) {
+            .map(function (res) {
             //console.log( res.json().data)
             return res.json().data;
         })
@@ -58,8 +59,7 @@ var TodoService = (function () {
         var options = new http_1.RequestOptions({ headers: headers });
         var url = this.apiUrl + "/" + todo.id;
         return this.http.put(url, body, options)
-            .toPromise()
-            .then(function (res) { return todo; })
+            .map(function (res) { return todo; })
             .catch(this.handleError);
     };
     //+++
@@ -68,14 +68,13 @@ var TodoService = (function () {
         var options = new http_1.RequestOptions({ headers: headers });
         var url = this.apiUrl + "/" + todo.id;
         return this.http.delete(url, options)
-            .toPromise()
-            .then(function (res) { console.log(todo); return todo; })
+            .map(function (res) { console.log(todo); return todo; })
             .catch(this.handleError);
     };
     //+++
     TodoService.prototype.handleError = function (error) {
         console.log('Произошла ошибка', error);
-        return Promise.reject(error.message || error);
+        return Observable_1.Observable.throw(error.message || error);
     };
     TodoService = __decorate([
         core_1.Injectable(), 
